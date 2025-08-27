@@ -1,0 +1,16 @@
+openai
+google-generativeai
+langchain
+langchain-community
+langchain-google-genai
+wikipedia
+numexpr
+PyPDF2
+tiktoken
+faiss-cpu
+streamlit-chat
+pypdf
+langchain_experimental
+tabulate
+chromadb
+pysqlite3-binary
