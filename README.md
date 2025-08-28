@@ -1,82 +1,84 @@
-# Spring boot 기반의 중고거래 시스템
+# AI를 이용한 학습 메이트 
 
 ***
 ## 📌개발 목적 및 배경
-기존의 중고거래의 문제점은 사기, 품질 문제, 개인의 안전등의 다양한 위험을 수반한 형태의 거래가 이루어 졌습니다.
-이러한 문제를 줄이고자 중고거래를 기업을 통하여 이루어지게 된다면 신뢰도 향상, 품질 개선, 안전성 향상등의 기존의 문제점을 해결하고
-더욱 활발하고 안전한 중고거래 문화가 정착하게 될것이며 신뢰할 수 있는 중고거래 시장을 만드는 것이 목표입니다.
+혼자 공부하기 힘든 내용, 좀 더 효율적이고 체계적으로 공부할 수 있는 방법은 없나?<br> 
+그렇게 생각한 적이 한 번쯤은 있을 것이다. <br>
+그럴 때 함께 학습하기 좋은 친구가 바로 ai 학습 메이트이다.<br>
+음성 추출, 내용 요약, 학습 계획은 물론 질의, 설명문 생성도 가능하다. 
+
 
 ***
 ## 🧑‍💻팀원 및 역할
-| 이름  | 담당 역할              |
-|:----|:-------------------|
-| 김송희 ||
-| 정태원 ||
-| 유진현 ||
+| 이름  | 담당 역할           |
+|:----|:----------------|
+| 김송희 | 페이지 제작, 프로젝트 개발 |
+| 정태원 | 페이지 제작, 프로젝트 개발 |
+| 유진현 | 페이지 제작, 프로젝트 개발 |
 ***
 **기간 :**  2025.08.18 ~ 2025.08.29
 ***
 ## 프로젝트 계획도
-![Projectimg](imgs/짱구.jpg)
-## ERD
-![ERD](imgs/readme/ERD.png)
-
-## 화면 흐름도
-![flowchart](imgs/readme/flowchart.png)
+![flowchart](doc/flowchart1.png)
+![flowchart](doc/flowchart2.png)
 
 ***
 ## 🛠 개발환경 및 개발도구
 
-협업도구: Github, ERD Cloud <br>
-개발도구: IntelliJ <br>
-언어: Java, JavaScript, HTML5, CSS, SQL <br>
-Database: MySQL <br>
-프레임워크: Spring Boot, My Batis, Bootstrap <br>
+언어 및 도구: Python, Github, Streamlit, OpenAi, Gemini, LangChain<br>
+
+프로그램:
+1. 파이썬 프로그래밍
+2. 머신러닝 딥러닝 프로그램
+3. LLM 연동 프로그램
+4. LLM 과 streamlit을 이용한 UI 연동 프로그램
+5. LangChain 을 이용한 LLM 연동 프로그램
+6. LangChain 을 이용한 LLM과 streamlit을 이용한 UI 연동 프로그램 <br>
+
+
 ***
+
 ## ✅주요기능
-### 1. 메인 기능
-- 로그인 및 회원가입
-- 상품 정보 페이지
-  - 상품 상세정보 페이지
-- 결제
+### 마이페이지
+![Main Page](doc/mainpage.png)
+- 카테고리를 한 눈에 확인 가능
 
-### 2. 사용자 기능
-- 마이페이지
-  - 장바구니
-  - 찜하기
-  - 사용자 정보 수정
-  - 주소록 관리
+### Page1. 개념 학습하기
+![AddressPage](doc/page1.png)
+- 요약 및 문제풀이
+- 업로드 된 PDF에 대하여 요약 및 문제 생성, 채점, 오답까지
 
-***
-# 메인 기능
-## 메인페이지
-![MainPage](imgs/readme/MainPage.png)
-- 우측 상단의 바를 통해서 회원가입 및 로그인 가능
+### Page2. 학습자료로 질문하기
+![CartPage](doc/page2.png)
+- 업로드된 PDF 내용에 대해 AI에 질문
 
-![MainPage](imgs/readme/MainPageLogin.png)
-- 로그인 성공시 우측 상단에 이름과 로그아웃 기능 출력
-- 마이페이지, 장바구니, 찜, 상품 상세 페이지 이동 가능
+### Page3. 녹음내용 요약하기
+![FavPage](doc/page3.png)
+- 음성 파일을 업로드하고 텍스트로 추출 및 요약
 
-## 회원가입
-![LoginPage](imgs/readme/LoginPage.png)
+### Page4. 설명문 생성
+![FavPage](doc/page4.png)
+- 설명문 생성
+- 원하는 주제 입력, 난이도 설정
+- 목차, 실용 예시, 다음 학습/연구 단계 제안 옵션 선택
+- 설명문에 참고하고 싶은 주소 추가
 
-## 로그인
-![LoginPage](imgs/readme/LoginPage.png)
+### Page5. 채팅하기 
+![FavPage](doc/page5.png)
+- AI와 대화 기능
+- 연구, 토론 등 모드 선택 기능
 
-# 사용자 기능
-## 마이페이지
-![MyPage](imgs/readme/MyPage.png)
-- 좌측의 네이게이션 바를 통해 원하는 기능으로 이동
-- 이름, 비밀번호 변경
+### Page6. 찍어서 살펴보기
+![FavPage](doc/page6.png)
+- 캡쳐된 내용 질문
 
-## 주소록 관리
-![AddressPage](imgs/readme/AddressPage.png)
-- 주소록 생성, 수정, 삭제
 
-## 장바구니
-![CartPage](imgs/readme/CartPage.png)
-- 
+### Page7. 스터디 플래너 
+![FavPage](doc/page7.png)
+- 공부 파일을 업로드
+- 그에 대한 공부 일정 세분화 하여 생성
 
-## 찜
-![FavPage](imgs/readme/FavPage.png)
-- 
+### Page8. 달력에 메모하기
+![FavPage](doc/page8.png)
+- 일정 추가
+- AI가 일정 확인 및 찾기 기능

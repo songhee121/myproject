@@ -91,7 +91,7 @@ def fetch_text_from_url(url: str, max_chars: int = 30000):
         return None
 
 # 생성 버튼 (설명은 버튼을 눌렀을 때만 생성됨)
-generate = st.button("설명 생성")
+generate = st.button("설명 생성", key="generate_btn")
 
 if generate:
     topic = st.session_state.get('input_text', '').strip()
@@ -135,7 +135,10 @@ if generate:
         try:
             with st.spinner("설명 생성 중..."):
                 response = llm.predict(prompt_text)
+                # 새 설명이 생성되면 이전 요약/체크리스트 초기화
                 st.session_state['last_response'] = response
+                st.session_state.pop('summary', None)
+                st.session_state.pop('checklist', None)
         except Exception as e:
             st.error(f"LLM 호출 중 오류가 발생했습니다: {e}")
             st.session_state['last_response'] = None
@@ -148,21 +151,35 @@ if st.session_state.get('last_response'):
     # 간단 요약 및 다음 단계 버튼
     st.markdown("---")
     st.markdown("### 빠른 액션")
-    if st.button("요약 추출 (150자 이내)"):
+
+    # -- 요약 생성 버튼 (결과는 session_state['summary']에 저장) --
+    if st.button("요약 추출 (150자 이내)", key="summary_btn"):
         try:
             llm = getOpenAI()
             summary_prompt = f"다음 내용을 150자 이내로 한국어로 요약하세요:\n\n{response}"
             summary = llm.predict(summary_prompt)
-            st.write(summary)
+            st.session_state['summary'] = summary
         except Exception as e:
             st.error(f"요약 중 오류: {e}")
-    if st.button("학습 체크리스트 생성"):
+
+    # -- 체크리스트 생성 버튼 (결과는 session_state['checklist']에 저장) --
+    if st.button("학습 체크리스트 생성", key="checklist_btn"):
         try:
             llm = getOpenAI()
             checklist_prompt = f"다음 설명을 바탕으로 실제로 따라할 수 있는 학습 체크리스트(5단계 이내)를 한국어로 작성하세요:\n\n{response}"
             checklist = llm.predict(checklist_prompt)
-            st.write(checklist)
+            st.session_state['checklist'] = checklist
         except Exception as e:
             st.error(f"체크리스트 생성 중 오류: {e}")
+
+    # -- 저장된 요약/체크리스트를 둘 다 보여줌 --
+    if st.session_state.get('summary'):
+        st.markdown("#### 요약 (150자 이내)")
+        st.write(st.session_state['summary'])
+
+    if st.session_state.get('checklist'):
+        st.markdown("#### 학습 체크리스트")
+        st.write(st.session_state['checklist'])
+
 else:
     st.info("주제와 옵션을 입력한 뒤 '설명 생성' 버튼을 누르세요.")
