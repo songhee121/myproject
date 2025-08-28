@@ -34,7 +34,7 @@ def getGenAI():
     )
     return llm
 
-def progress_bar(txt):
+def progressBar(txt):
     # Progress Bar Start -----------------------------------------
     progress_text = txt
     my_bar = st.progress(0, text=progress_text)
@@ -48,7 +48,6 @@ def progress_bar(txt):
 def openAiModel():
     client = OpenAI(api_key=OPENAI_API_KEY)
     return client
-
 def makeAudio(text, name):
     if not os.path.exists("audio"):
         os.makedirs("audio")
