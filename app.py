@@ -10,7 +10,6 @@ page_7 = st.Page("p7.py", title="스터디 플래너", icon="🧭")
 page_8 = st.Page("p8.py", title="달력에 메모하기", icon="📆️")
 
 
-
 page = st.navigation([page_1, page_2, page_3, page_4, page_5, page_6, page_7, page_8])
 
 page.run()
