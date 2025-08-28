@@ -40,6 +40,8 @@ AI 학습 메이트는 독학의 어려움을 줄이고, 체계적인 학습을 
 
 ## ✅주요기능
 
+### Site URL
+- https://songhssproject.streamlit.app/
 ### Main Page
 - 주요 기능 설명
 
